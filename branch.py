@@ -33,7 +33,7 @@ class Branch :
             raise Exception("Error state : " + str(commit_state))
             return
 
-    def push(url) :
+    def push(self, url) :
         push_state = os.system(gs.push(url, self.name))
 
         if push_state != 0 :

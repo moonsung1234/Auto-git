@@ -8,7 +8,11 @@ class Setter :
 
 class Launcher :
     def run(self, setter) :
-        temp = setter.head_setter
+        if setter.name == "master" :
+            temp = setter.head_setter.setter
+        
+        else :
+            temp = setter.head_setter
 
         while temp != None :
             state = os.system(temp.command)

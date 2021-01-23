@@ -21,16 +21,22 @@ class Branch :
         self.setter.setter = setter
         self.setter = setter
 
+        return setter
+
     def commit(self, name) :
         setter = Setter(gs.commit(name), None)
 
         self.setter.setter = setter
         self.setter = setter
 
+        return setter
+
     def push(self, url) :
         setter = Setter(gs.push(url, self.name), None)
 
         self.setter.setter = setter
         self.setter = setter
+
+        return setter
         
     

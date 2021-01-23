@@ -1,42 +1,36 @@
 
 import os
+import copy
 import gitstring as gs
+from launcher import Setter
 
 class Branch :
-    def __checkoutBranch(self, name) :
-        if name != "master" :
-            checkout_state = os.system(gs.checkout(name))
+    def __fcheckoutBranch(self, name) :
+        setter = Setter(gs.checkout(name), None)
 
-            if checkout_state != 0 :
-                branch_state = os.system(gs.branch(name))
-                recheckout_state = os.system(gs.checkout(name))
-
-                if recheckout_state != 0 :
-                    raise Exception("Error state : " + str(recheckout_state))
-                    return
+        self.head_setter = setter
+        self.setter = setter
 
     def __init__(self, name) :
         self.name = name
-        self.__checkoutBranch(name)
+        self.__fcheckoutBranch(self.name)        
 
     def addFile(self, _file) :
-        add_state = os.system(gs.add(_file))
+        setter = Setter(gs.add(_file), None)
 
-        if add_state != 0 :
-            raise Exception("Error state : " + str(add_state))
-            return
+        self.setter.setter = setter
+        self.setter = setter
 
     def commit(self, name) :
-        commit_state = os.system(gs.commit(name))
+        setter = Setter(gs.commit(name), None)
 
-        if commit_state != 0 :
-            raise Exception("Error state : " + str(commit_state))
-            return
+        self.setter.setter = setter
+        self.setter = setter
 
     def push(self, url) :
-        push_state = os.system(gs.push(url, self.name))
+        setter = Setter(gs.push(url, self.name), None)
 
-        if push_state != 0 :
-            raise Exception("Error state : " + str(push_state))
-            return
+        self.setter.setter = setter
+        self.setter = setter
+        
     

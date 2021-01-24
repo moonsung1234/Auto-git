@@ -12,7 +12,7 @@ import AutoGit
 master = AutoGit.Branch("master") # set main branch
 master_add = master.addFile(".") # same with "git add ."
 master_commit = master.commit("auto-git") # same with "git commit -m auto-git"
-master_push = master.push("origin") same with "git push origin [branch]"
+master_push = master.push("origin") # same with "git push origin [branch]"
 
 launcher = AutoGit.Launcher() # set git launcher
 launcher.run(master) # run

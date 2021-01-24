@@ -46,6 +46,8 @@ launcher.run(master)
 - setDate 인자로는 hour(시간) 까지만 들어감.
 - setCycle 함수를 꼭 넣어야함. 이때 주기는 시간을 확인할 텀(sleep time) 이 됨.
 
+<br/>
+
 ```python
 import AutoGit
 
@@ -56,6 +58,6 @@ master_push = master.push("origin")
 
 launcher = AutoGit.Launcher()
 launcher.setDate("2021/1/24/21") # set date. (year/month/day/hour)
-launcher.setCycle(5) # set cycle. (sleep time for checking date)
+launcher.setCycle(5) # set cycle. (sleep time to check date)
 launcher.run(master)
 ```
